@@ -103,11 +103,11 @@ WebGlRenderer.prototype.load = function () {
 
 	this._preparePrograms();
 
-	var program = this._programs.box; //TODO : some kind of selector
-	this._gl.useProgram(program);
+	this._currentProgram = this._programs.box; //TODO : some kind of selector
+	this._gl.useProgram(this._currentProgram);
 
-	this._verifyAttribLocations(program);
-	this._verifyVertexAttribArray(program);
+	this._verifyAttribLocations(this._currentProgram);
+	this._verifyVertexAttribArray(this._currentProgram);
 
 	this._gl.viewport(0, 0, this._canvas.width, this._canvas.height);
 };
